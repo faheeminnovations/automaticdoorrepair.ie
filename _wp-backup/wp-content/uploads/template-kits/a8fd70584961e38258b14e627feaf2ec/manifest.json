@@ -1,0 +1,949 @@
+{
+    "manifest_version": "1.0.21",
+    "title": "Windco \u2013 Doors & Windows Service Elementor Template Kit",
+    "page_builder": "elementor",
+    "kit_version": "1.0.0",
+    "templates": [
+        {
+            "name": "Global Kit Styles",
+            "screenshot": "screenshots\/global-kit-styles.jpg",
+            "source": "templates\/global.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "global-styles",
+                "include_in_zip": "1",
+                "elementor_pro_required": null,
+                "additional_template_information": [
+                    "These are the global theme styles configured through the Elementor Theme Styles area."
+                ]
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Home",
+            "screenshot": "screenshots\/home.jpg",
+            "source": "templates\/home.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/home\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-home",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "About Us",
+            "screenshot": "screenshots\/about-us.jpg",
+            "source": "templates\/about-us.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/about-us\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "MetForm Appointment",
+            "screenshot": "screenshots\/metform-appointment.jpg",
+            "source": "templates\/metform-appointment.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/metform-appointment\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Services",
+            "screenshot": "screenshots\/services.jpg",
+            "source": "templates\/services.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/services\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Projects",
+            "screenshot": "screenshots\/projects.jpg",
+            "source": "templates\/projects.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/projects\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Pricing",
+            "screenshot": "screenshots\/pricing.jpg",
+            "source": "templates\/pricing.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/pricing\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "FAQ",
+            "screenshot": "screenshots\/faq.jpg",
+            "source": "templates\/faq.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/faq\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Blog",
+            "screenshot": "screenshots\/blog.jpg",
+            "source": "templates\/blog.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/blog\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Single Blog",
+            "screenshot": "screenshots\/single-blog.jpg",
+            "source": "templates\/single-blog.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/single-blog\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-post",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "MetForm Contact",
+            "screenshot": "screenshots\/metform-contact.jpg",
+            "source": "templates\/metform-contact.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/metform-contact\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Contact",
+            "screenshot": "screenshots\/contact.jpg",
+            "source": "templates\/contact.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/contact\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Header",
+            "screenshot": "screenshots\/header.jpg",
+            "source": "templates\/header.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/header\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-header",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Footer",
+            "screenshot": "screenshots\/footer.jpg",
+            "source": "templates\/footer.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/footer\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-footer",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "404 Page",
+            "screenshot": "screenshots\/404-page.jpg",
+            "source": "templates\/404-page.json",
+            "preview_url": "https:\/\/templatekit.jegtheme.com\/windco\/template-kit\/404-page\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-404",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        }
+    ],
+    "required_plugins": [
+        {
+            "name": "Jeg Elementor Kit",
+            "version": "2.1.0",
+            "file": "jeg-elementor-kit\/jeg-elementor-kit.php",
+            "author": "Jegstudio"
+        },
+        {
+            "name": "MetForm",
+            "version": "1.5.4",
+            "file": "metform\/metform.php",
+            "author": "Wpmet"
+        },
+        {
+            "name": "Elementor",
+            "version": "3.4.4",
+            "file": "elementor\/elementor.php",
+            "author": "Elementor.com"
+        }
+    ],
+    "images": [
+        {
+            "filename": "side-view-of-builder-in-hardhat-and-protective-googles-installing-windows-by-drill-at-construction-e1638152084924.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/side-view-of-builder-in-hardhat-and-protective-googles-installing-windows-by-drill-at-construction-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 282072,
+            "dimensions": [
+                1920,
+                1282
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-FYDXYXC"
+        },
+        {
+            "filename": "technician-installing-window-e1638151766521.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/technician-installing-window-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 204495,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-JMMVMMY"
+        },
+        {
+            "filename": "bearded-adult-repairman-fixing-window-with-sealant-gun-e1638152044115.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/bearded-adult-repairman-fixing-window-with-sealant-gun-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                }
+            ],
+            "filesize": 220634,
+            "dimensions": [
+                1920,
+                1282
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-NEJADWD"
+        },
+        {
+            "filename": "driving-screws-into-jamb-of-plastic-window-e1638151791687.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/driving-screws-into-jamb-of-plastic-window-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 174822,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-53AL87P"
+        },
+        {
+            "filename": "adult-repairman-in-goggles-fixing-window-handle-by-electric-drill-e1638152058924.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/adult-repairman-in-goggles-fixing-window-handle-by-electric-drill-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                }
+            ],
+            "filesize": 177992,
+            "dimensions": [
+                1920,
+                1282
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-4RG8PS8"
+        },
+        {
+            "filename": "handyman-in-goggles-fixing-window-handle-by-electric-drill-e1638152051446.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/handyman-in-goggles-fixing-window-handle-by-electric-drill-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                }
+            ],
+            "filesize": 161532,
+            "dimensions": [
+                1920,
+                1282
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-BBRXH5U"
+        },
+        {
+            "filename": "square-pixel-VVLG4M3.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/square-pixel-VVLG4M3.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 8915,
+            "dimensions": [
+                388,
+                102
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/image-VVLG4M3"
+        },
+        {
+            "filename": "Parka.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/Parka.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 2226,
+            "dimensions": [
+                174,
+                51
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/image-VVLG4M3"
+        },
+        {
+            "filename": "Garret.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/Garret.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 3060,
+            "dimensions": [
+                212,
+                57
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/image-VVLG4M3"
+        },
+        {
+            "filename": "Domoo.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/Domoo.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 8352,
+            "dimensions": [
+                388,
+                102
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/image-VVLG4M3"
+        },
+        {
+            "filename": "handyman-in-yellow-uniform-works-with-glue-for-window-indoors-house-renovation-conception-e1638151973186.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/handyman-in-yellow-uniform-works-with-glue-for-window-indoors-house-renovation-conception-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/pricing.json",
+                    "name": "Pricing"
+                },
+                {
+                    "source": "templates\/faq.json",
+                    "name": "FAQ"
+                }
+            ],
+            "filesize": 168708,
+            "dimensions": [
+                1920,
+                1282
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-276QRW9"
+        },
+        {
+            "filename": "installation-of-windows-young-man-working-in-uniform-at-construction-at-daytime-1-e1638151894682.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/installation-of-windows-young-man-working-in-uniform-at-construction-at-daytime-1-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 224914,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-7XD26DA"
+        },
+        {
+            "filename": "silhouette-near-a-window-e1638151821116.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/silhouette-near-a-window-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 88548,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-PJ9ZM74"
+        },
+        {
+            "filename": "testimonial-M6NJPEF.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/testimonial-M6NJPEF.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 31858,
+            "dimensions": [
+                160,
+                160
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-M6NJPEF"
+        },
+        {
+            "filename": "testimonial-A8E2W8S.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/testimonial-A8E2W8S.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 30058,
+            "dimensions": [
+                160,
+                160
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-A8E2W8S"
+        },
+        {
+            "filename": "testimonial-N8572T7.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/testimonial-N8572T7.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 29574,
+            "dimensions": [
+                160,
+                160
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-N8572T7"
+        },
+        {
+            "filename": "contractor-removing-old-window-frames-e1638152033522.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/contractor-removing-old-window-frames-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 210573,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-DT3E3T5"
+        },
+        {
+            "filename": "man-changing-core-of-a-door-lock-e1638152095309.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/man-changing-core-of-a-door-lock-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 192956,
+            "dimensions": [
+                1920,
+                1282
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-GK3HTJ5"
+        },
+        {
+            "filename": "commercial-building-windows-installation-e1638151783894.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/commercial-building-windows-installation-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                },
+                {
+                    "source": "templates\/pricing.json",
+                    "name": "Pricing"
+                }
+            ],
+            "filesize": 263654,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-QTUAD9Z"
+        },
+        {
+            "filename": "two-builders-in-hard-hats-and-high-visibility-jack-XMVEN4J.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/two-builders-in-hard-hats-and-high-visibility-jack-XMVEN4J-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                },
+                {
+                    "source": "templates\/faq.json",
+                    "name": "FAQ"
+                }
+            ],
+            "filesize": 266251,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-XMVEN4J"
+        },
+        {
+            "filename": "young-successful-plumber-in-workwear-standing-in-b-3P7U6YB.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/young-successful-plumber-in-workwear-standing-in-b-3P7U6YB-800x999.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                }
+            ],
+            "filesize": 160575,
+            "dimensions": [
+                820,
+                1024
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-3P7U6YB"
+        },
+        {
+            "filename": "smiling-handsome-electrician-showing-tablet-with-b-DZXN4EX.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/smiling-handsome-electrician-showing-tablet-with-b-DZXN4EX-800x999.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                }
+            ],
+            "filesize": 143179,
+            "dimensions": [
+                820,
+                1024
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-DZXN4EX"
+        },
+        {
+            "filename": "positive-electrician-repairing-wires-in-flat-XUD8FWE.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/positive-electrician-repairing-wires-in-flat-XUD8FWE-800x999.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about-us.json",
+                    "name": "About Us"
+                }
+            ],
+            "filesize": 141518,
+            "dimensions": [
+                820,
+                1024
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-XUD8FWE"
+        },
+        {
+            "filename": "arrow.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/arrow.png",
+            "templates": [
+                {
+                    "source": "templates\/services.json",
+                    "name": "Services"
+                },
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 3121,
+            "dimensions": [
+                675,
+                90
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/templatekit.jegtheme.com\/windco\/"
+        },
+        {
+            "filename": "worker-installing-trim-around-a-window-molding-installed-moldings-materials-e1638152008816.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/worker-installing-trim-around-a-window-molding-installed-moldings-materials-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/projects.json",
+                    "name": "Projects"
+                }
+            ],
+            "filesize": 240528,
+            "dimensions": [
+                1920,
+                1281
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-M9WC733"
+        },
+        {
+            "filename": "worker-installing-trim-around-a-window-molding-installed-moldings-materials-1-e1638152016122.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/worker-installing-trim-around-a-window-molding-installed-moldings-materials-1-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/pricing.json",
+                    "name": "Pricing"
+                },
+                {
+                    "source": "templates\/single-blog.json",
+                    "name": "Single Blog"
+                }
+            ],
+            "filesize": 167782,
+            "dimensions": [
+                1920,
+                1281
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-VN8ZGKD"
+        },
+        {
+            "filename": "partial-view-of-male-handyman-writing-in-clipboard-and-checking-window-e1638152076243.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/partial-view-of-male-handyman-writing-in-clipboard-and-checking-window-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/faq.json",
+                    "name": "FAQ"
+                }
+            ],
+            "filesize": 195018,
+            "dimensions": [
+                1920,
+                1282
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-6KV2LLJ"
+        },
+        {
+            "filename": "window-e1638151749664.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/window-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                },
+                {
+                    "source": "templates\/single-blog.json",
+                    "name": "Single Blog"
+                }
+            ],
+            "filesize": 244014,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-BBC778E"
+        },
+        {
+            "filename": "worker-removing-old-wooden-window-frame-e1638152002433.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/worker-removing-old-wooden-window-frame-800x534.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-blog.json",
+                    "name": "Single Blog"
+                }
+            ],
+            "filesize": 251893,
+            "dimensions": [
+                1920,
+                1281
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-EFFHYNV"
+        },
+        {
+            "filename": "handyman-in-yellow-uniform-installs-new-window-by-using-automatic-screwdriver-e1638151906961.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/handyman-in-yellow-uniform-installs-new-window-by-using-automatic-screwdriver-800x491.jpg",
+            "templates": [
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                }
+            ],
+            "filesize": 173294,
+            "dimensions": [
+                1920,
+                1178
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-87T9LWH"
+        },
+        {
+            "filename": "logo-windco.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/logo-windco-800x208.png",
+            "templates": [
+                {
+                    "source": "templates\/header.json",
+                    "name": "Header"
+                }
+            ],
+            "filesize": 24550,
+            "dimensions": [
+                1758,
+                456
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/templatekit.jegtheme.com\/windco\/"
+        },
+        {
+            "filename": "logo-2.png",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/logo-2-800x208.png",
+            "templates": [
+                {
+                    "source": "templates\/footer.json",
+                    "name": "Footer"
+                }
+            ],
+            "filesize": 23472,
+            "dimensions": [
+                1758,
+                456
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/templatekit.jegtheme.com\/windco\/"
+        },
+        {
+            "filename": "rain-drops-on-window-e1638151813168.jpg",
+            "thumbnail_url": "https:\/\/templatekit.jegtheme.com\/windco\/wp-content\/uploads\/sites\/213\/2021\/11\/rain-drops-on-window-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/404-page.json",
+                    "name": "404 Page"
+                }
+            ],
+            "filesize": 299275,
+            "dimensions": [
+                1920,
+                1280
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-NX9K5EP"
+        }
+    ]
+}

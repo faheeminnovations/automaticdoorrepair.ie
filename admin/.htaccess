@@ -1,0 +1,7 @@
+Options -Indexes
+
+# Block access to includes folder directly
+<FilesMatch "^(config|header|footer)\.php$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
