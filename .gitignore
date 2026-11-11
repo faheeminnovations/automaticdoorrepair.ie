@@ -1,1 +1,26 @@
+# Private configuration
 admin/includes/config.php
+.env
+.env.*
+!.env.example
+
+# Backups
+*.backup
+*.bak
+*.old
+*.sql
+*.sql.gz
+*.before-setting-fix
+*.color-backup
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+error_log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

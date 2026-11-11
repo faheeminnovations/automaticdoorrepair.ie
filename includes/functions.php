@@ -47,28 +47,22 @@ function is_valid_email(string $e): bool {
  * Load a setting from MySQL DB
  */
 function setting(string $key, string $default = ''): string {
-    static $cache = null;
-    if ($cache === null) {
-        $cache = [];
-        try {
-            $sock  = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock';
-            $conn  = new mysqli();
-            $conn->real_connect(null, 'root', '', 'automaticdoorrepair', 3306, $sock);
-            if (!$conn->connect_error) {
-                $conn->set_charset('utf8mb4');
-                $res = $conn->query("SELECT setting_key, setting_value FROM site_settings");
-                if ($res) {
-                    while ($row = $res->fetch_assoc()) {
-                        $cache[$row['setting_key']] = $row['setting_value'];
-                    }
-                }
-                $conn->close();
-            }
-        } catch (Exception $e) {}
-    }
-    return $cache[$key] ?? $default;
-}
+    static $settings = null;
 
+    if ($settings === null) {
+        require_once __DIR__ . '/../admin/includes/config.php';
+
+        try {
+            $settings = get_settings();
+        } catch (Throwable $e) {
+            error_log('Settings error: ' . $e->getMessage());
+            $settings = [];
+        }
+    }
+
+    $value = $settings[$key] ?? $default;
+    return is_scalar($value) ? (string) $value : $default;
+}
 /**
  * Load services from DB
  */
