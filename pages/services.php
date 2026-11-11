@@ -14,8 +14,8 @@ require_once __DIR__ . '/../includes/header.php';
   <div class="container">
     <div class="section-head center">
       <p class="eyebrow">What We Do</p>
-      <h1>All Door Services We Provide</h1>
-      <p class="section-sub">From emergency repairs to full new installations — we cover every type of commercial door system across Ireland.</p>
+      <h1 style="color: white !important" >All Door Services We Provide</h1>
+      <p style="color: white !important" class="section-sub">From emergency repairs to full new installations — we cover every type of commercial door system across Ireland.</p>
     </div>
     <div class="services-grid">
       <?php foreach (db_services() as $svc): ?>

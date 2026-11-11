@@ -383,6 +383,9 @@ body { padding-top: 72px; }
   line-height: 1.1;
   margin-bottom: 24px;
 }
+.h1 {
+    color: white !important;
+}
 .hero-sub {
   font-size: clamp(15px, 1.8vw, 17px);
   color: rgba(215,217,220,.8);
