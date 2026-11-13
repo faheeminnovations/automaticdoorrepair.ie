@@ -33,6 +33,9 @@ switch (true) {
     case ($uri === 'gallery'):
         require __DIR__ . '/pages/gallery.php';
         break;
+    case ($uri === 'all-projects'):
+        require __DIR__ . '/pages/all-projects.php';
+        break;
     case ($uri === 'contact'):
         require __DIR__ . '/pages/contact.php';
         break;

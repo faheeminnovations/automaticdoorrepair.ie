@@ -53,7 +53,9 @@ function setting(string $key, string $default = ''): string {
         require_once __DIR__ . '/../admin/includes/config.php';
 
         try {
-            $settings = get_settings();
+            $raw = get_settings();
+            // get_settings() returns ['setting_key' => 'setting_value', ...]
+            $settings = $raw;
         } catch (Throwable $e) {
             error_log('Settings error: ' . $e->getMessage());
             $settings = [];
@@ -92,11 +94,24 @@ function db_services(): array {
  * Inject CSS color variables from DB
  */
 function color_vars(): string {
-    $p = setting('color_primary',  '#702963');
-    $a = setting('color_accent',   '#AA336A');
-    $d = setting('color_dark_bg',  '#15181A');
-    $l = setting('color_light_bg', '#F6F4F0');
-    return "<style>:root{--c-primary:{$p};--c-accent:{$a};--c-dark-bg:{$d};--c-light-bg:{$l};--c-dark-2:{$d};--c-dark-3:{$d};}</style>";
+    $p = setting('color_primary',  '#0d3b6e');
+    $a = setting('color_accent',   '#1a6fc4');
+    $d = setting('color_dark_bg',  '#071e38');
+    $l = setting('color_light_bg', '#f0f5fb');
+    $d2 = setting('color_dark_bg', '#071e38');
+    return "<style>:root{--c-primary:{$p};--c-accent:{$a};--c-accent-h:" . adjustHex($a, -20) . ";--c-dark-bg:{$d};--c-light-bg:{$l};--c-dark-2:{$d2};--c-dark-3:{$d2};}</style>";
+}
+
+/**
+ * Darken a hex colour by a fixed amount (for hover states)
+ */
+function adjustHex(string $hex, int $amount): string {
+    $hex = ltrim($hex, '#');
+    if (strlen($hex) === 3) $hex = $hex[0].$hex[0].$hex[1].$hex[1].$hex[2].$hex[2];
+    $r = max(0, min(255, hexdec(substr($hex,0,2)) + $amount));
+    $g = max(0, min(255, hexdec(substr($hex,2,2)) + $amount));
+    $b = max(0, min(255, hexdec(substr($hex,4,2)) + $amount));
+    return sprintf('#%02x%02x%02x', $r, $g, $b);
 }
 
 /**
@@ -148,6 +163,217 @@ function send_enquiry_email(array $d): bool {
              . "Content-Type: text/plain; charset=UTF-8\r\n"
              . "X-Mailer: PHP/" . phpversion();
     return @mail($to, $subject, $body, $headers);
+}
+
+// ── All Products with gallery images (for gallery & all-projects pages) ─
+function get_products_gallery(): array {
+    return [
+        [
+            'slug'   => 'automatic-doors',
+            'title'  => 'Automatic Doors',
+            'icon'   => 'bi-door-open',
+            'cover'  => 'Automatic-Doors-1.jpg',
+            'images' => [
+                ['file'=>'Automatic-Doors-1.jpg',          'alt'=>'Automatic Doors Installation'],
+                ['file'=>'Automatic-Doors-2.jpg',          'alt'=>'Automatic Sliding Door'],
+                ['file'=>'Automatic-Doors-3.jpg',          'alt'=>'Automatic Door Repair'],
+                ['file'=>'Automatic-Doors-4.jpg',          'alt'=>'Commercial Automatic Door'],
+                ['file'=>'Automatic-Doors-5.jpg',          'alt'=>'Automatic Door Ireland'],
+                ['file'=>'Automatic-Doors-6.jpg',          'alt'=>'Automatic Sliding Door Install'],
+                ['file'=>'Automatic-Doors-7.jpg',          'alt'=>'Automatic Door Service'],
+                ['file'=>'Automatic-Doors-8.jpg',          'alt'=>'Automatic Door Maintenance'],
+                ['file'=>'Automatic-Doors-9.jpg',          'alt'=>'Automatic Door Supply'],
+                ['file'=>'Automatic-Doors-10.jpg',         'alt'=>'Automatic Door Systems'],
+                ['file'=>'Automatic-Doors-11.jpg',         'alt'=>'Automatic Door Project'],
+                ['file'=>'Automatic-Doors-12.jpg',         'alt'=>'Automatic Door Kildare'],
+                ['file'=>'Automatic-Doors.jpg',            'alt'=>'Automatic Door'],
+                ['file'=>'Automatic-Doors-1.jpeg',         'alt'=>'Automatic Doors Installed'],
+                ['file'=>'automatic-doors-and-Aluminium-Shopfronts.jpeg',  'alt'=>'Automatic Doors & Shopfront'],
+                ['file'=>'automatic-doors-and-Aluminium-Shopfronts-2.jpeg','alt'=>'Doors & Shopfront 2'],
+                ['file'=>'automatic-doors-and-Aluminium-Shopfronts-3-.jpeg','alt'=>'Doors & Shopfront 3'],
+            ],
+        ],
+        [
+            'slug'   => 'aluminium-shopfronts',
+            'title'  => 'Aluminium Shopfronts',
+            'icon'   => 'bi-shop',
+            'cover'  => 'Aluminium-Shopfronts-1.jpg',
+            'images' => [
+                ['file'=>'Aluminium-Shopfronts-1.jpg',                     'alt'=>'Aluminium Shopfront Install'],
+                ['file'=>'Aluminium-Shopfronts-2.jpg',                     'alt'=>'Aluminium Shopfront Dublin'],
+                ['file'=>'Aluminium-Shopfronts-3.jpg',                     'alt'=>'Shopfront Design'],
+                ['file'=>'Aluminium-Shopfronts-4.jpg',                     'alt'=>'Aluminium Shop Front'],
+                ['file'=>'Aluminium-Shopfronts-5.jpg',                     'alt'=>'Commercial Shopfront'],
+                ['file'=>'Aluminium-Shopfronts-6.jpg',                     'alt'=>'Shopfront Ireland'],
+                ['file'=>'Aluminium-Shopfronts.jpg',                       'alt'=>'Aluminium Shopfront'],
+                ['file'=>'Aluminium-Shopfronts.jpeg',                      'alt'=>'Shopfront Supply'],
+                ['file'=>'Aluminium-Shopfronts-and-automatic-doors.jpeg',  'alt'=>'Shopfront with Auto Door'],
+                ['file'=>'Shop-Fronts.jpeg',                               'alt'=>'Shop Front Installed'],
+                ['file'=>'Glass-Shop-Front-scaled.jpg',                    'alt'=>'Glass Shop Front'],
+                ['file'=>'Shop-Front-1-scaled.webp',                       'alt'=>'Shop Front Project'],
+            ],
+        ],
+        [
+            'slug'   => 'commercial-roller-shutters',
+            'title'  => 'Commercial Roller Shutters',
+            'icon'   => 'bi-columns-gap',
+            'cover'  => 'Commercial-Shutter.jpeg',
+            'images' => [
+                ['file'=>'Commercial-Shutter.jpeg',              'alt'=>'Commercial Roller Shutter'],
+                ['file'=>'Commercial-Shutter1.jpeg',             'alt'=>'Commercial Shutter Install'],
+                ['file'=>'Commercial-Roller-Shutters-scaled.jpg','alt'=>'Commercial Roller Shutters'],
+                ['file'=>'Roller-Shutter-1-scaled.jpg',          'alt'=>'Roller Shutter 1'],
+                ['file'=>'Roller-Shutter-2-1-scaled.jpg',        'alt'=>'Roller Shutter 2'],
+                ['file'=>'Roller-Shutter-4-scaled.jpg',          'alt'=>'Roller Shutter 4'],
+                ['file'=>'Roller-Shutter-5-scaled.jpg',          'alt'=>'Roller Shutter 5'],
+                ['file'=>'Roller-Shutter-B-scaled.jpg',          'alt'=>'Commercial Shutter B'],
+                ['file'=>'Roller-Shutter-B-1-scaled.jpg',        'alt'=>'Commercial Shutter B1'],
+                ['file'=>'Green-Roller-Shutter.jpg',             'alt'=>'Green Roller Shutter'],
+                ['file'=>'shutter-image.jpg',                    'alt'=>'Roller Shutter Project'],
+            ],
+        ],
+        [
+            'slug'   => 'fire-rated-roller-shutters',
+            'title'  => 'Fire Rated Roller Shutters',
+            'icon'   => 'bi-fire',
+            'cover'  => 'Fire-Rated-Shutters-1.jpeg',
+            'images' => [
+                ['file'=>'Fire-Rated-Shutters-1.jpeg',  'alt'=>'Fire Rated Roller Shutter'],
+                ['file'=>'Fire-Rated-Shutters-2.jpeg',  'alt'=>'Fire Shutter Install'],
+                ['file'=>'Fire-Shutter-1.jpg',          'alt'=>'Fire Rated Shutter Project'],
+            ],
+        ],
+        [
+            'slug'   => 'commercial-steel-doors',
+            'title'  => 'Commercial Steel Doors',
+            'icon'   => 'bi-shield-fill',
+            'cover'  => 'Single-Steel-Door-1.jpg',
+            'images' => [
+                ['file'=>'Single-Door.jpg',         'alt'=>'Single Steel Door'],
+                ['file'=>'Single-Steel-Door-1.jpg', 'alt'=>'Steel Door Installed'],
+                ['file'=>'Single-Steel-Door.jpg',   'alt'=>'Commercial Steel Door'],
+                ['file'=>'Steel-Doors-1-scaled.jpg','alt'=>'Steel Doors Project'],
+                ['file'=>'Steel-Doors-scaled.jpg',  'alt'=>'Steel Doors Supply'],
+                ['file'=>'Steel-Doors.jpeg',        'alt'=>'Commercial Steel Doors Ireland'],
+                ['file'=>'Steel-Door.jpg',          'alt'=>'Steel Door Project'],
+                ['file'=>'Door-1-scaled.jpg',       'alt'=>'Commercial Door Install'],
+                ['file'=>'D-Doors.jpg',             'alt'=>'D Doors Project'],
+                ['file'=>'D-Doors-1.webp',          'alt'=>'Commercial D Doors'],
+                ['file'=>'Door-Half.jpg',           'alt'=>'Half Steel Door'],
+            ],
+        ],
+        [
+            'slug'   => 'fire-rated-steel-doors',
+            'title'  => 'Fire Rated Steel Doors',
+            'icon'   => 'bi-shield-fill-check',
+            'cover'  => 'Fire-Rated-Steel-Doors.jpeg',
+            'images' => [
+                ['file'=>'Fire-Rated-Steel-Doors.jpeg',             'alt'=>'Fire Rated Steel Door'],
+                ['file'=>'Fire-Rated-Steel-Doors-Landing-Page.jpeg','alt'=>'Fire Rated Doors Ireland'],
+                ['file'=>'Fire-Exit-Doors.jpeg',                    'alt'=>'Fire Exit Doors'],
+                ['file'=>'Fire-Exit-Doors-1.jpg',                   'alt'=>'Fire Exit Door Install'],
+                ['file'=>'FireExit-Doors-scaled.jpg',               'alt'=>'Fire Exit Doors Project'],
+                ['file'=>'After-New-Exit-Doors-2-scaled.jpg',       'alt'=>'New Exit Doors After'],
+                ['file'=>'After-New-Exit-Doors-3-scaled.jpg',       'alt'=>'Exit Doors Installed'],
+                ['file'=>'After-New-Exit-Doors-4-scaled.jpg',       'alt'=>'Exit Doors Complete'],
+            ],
+        ],
+        [
+            'slug'   => 'aluminium-commercial-doors',
+            'title'  => 'Aluminium Commercial Doors',
+            'icon'   => 'bi-building-fill',
+            'cover'  => 'Aluminium-Commercial-Doors-1.jpg',
+            'images' => [
+                ['file'=>'Aluminium-Commercial-Doors-1.jpg', 'alt'=>'Aluminium Commercial Door 1'],
+                ['file'=>'Aluminium-Commercial-Doors-2.jpg', 'alt'=>'Aluminium Commercial Door 2'],
+                ['file'=>'Aluminium-Commercial-Doors-3.jpg', 'alt'=>'Aluminium Commercial Door 3'],
+                ['file'=>'Aluminium-Commercial-Doors-4.jpg', 'alt'=>'Aluminium Commercial Door 4'],
+                ['file'=>'Aluminium-Commercial-Doors-5.jpg', 'alt'=>'Aluminium Commercial Door 5'],
+                ['file'=>'Aluminium-Commercial-Doors-6.jpg', 'alt'=>'Aluminium Commercial Door 6'],
+                ['file'=>'Aluminium-Commercial-Doors-7.jpg', 'alt'=>'Aluminium Commercial Door 7'],
+                ['file'=>'Aluminium-Commercial-Doors-8.jpg', 'alt'=>'Aluminium Commercial Door 8'],
+                ['file'=>'Aluminium-Commercial-Doors-9.jpg', 'alt'=>'Aluminium Commercial Door 9'],
+                ['file'=>'Aluminium-Commercial-Doors-10.jpg','alt'=>'Aluminium Commercial Door 10'],
+                ['file'=>'Aluminium-Commercial-Doors-11.jpg','alt'=>'Aluminium Commercial Door 11'],
+                ['file'=>'Aluminium-Commercial-Doors-13.jpg','alt'=>'Aluminium Commercial Door 13'],
+                ['file'=>'Aluminium-Commercial-Doors.jpg',   'alt'=>'Aluminium Commercial Doors'],
+            ],
+        ],
+        [
+            'slug'   => 'automatic-swing-doors',
+            'title'  => 'Automatic Swing Doors',
+            'icon'   => 'bi-box-arrow-in-right',
+            'cover'  => 'Automatic-Swing-Door-1-1.jpg',
+            'images' => [
+                ['file'=>'Automatic-Swing-Door-1-1.jpg',   'alt'=>'Automatic Swing Door'],
+                ['file'=>'Automatic-Swing-Door.jpg',       'alt'=>'Swing Door Install'],
+                ['file'=>'Automatic-Doors-scaled.jpg',     'alt'=>'Automatic Swing Door Project'],
+            ],
+        ],
+        [
+            'slug'   => 'fire-rated-glazed-screens',
+            'title'  => 'Fire Rated Glazed Screens',
+            'icon'   => 'bi-layout-three-columns',
+            'cover'  => 'Fire-Rated-Glazed-Screens.jpg',
+            'images' => [
+                ['file'=>'Fire-Rated-Glazed-Screens.jpg',   'alt'=>'Fire Rated Glazed Screen'],
+                ['file'=>'Fire-Rated-Glazed-Screens.jpeg',  'alt'=>'Glazed Fire Screen'],
+                ['file'=>'Fire-Rated-Glazed-Screens.webp',  'alt'=>'Fire Screen Install'],
+                ['file'=>'Fire-Rated-Glazed-Screens-1.webp','alt'=>'Fire Screen Project'],
+                ['file'=>'Fire-Rated-Glazed-Screen.jpeg',   'alt'=>'Fire Rated Glass Screen'],
+                ['file'=>'013-1-1120x1200-1.jpg',           'alt'=>'Fire Glazed Screen Ireland'],
+            ],
+        ],
+        [
+            'slug'   => 'stack-doors',
+            'title'  => 'Stack Doors',
+            'icon'   => 'bi-layers',
+            'cover'  => 'Stack-Door-1.jpg',
+            'images' => [
+                ['file'=>'Stack-Door-1.jpg',   'alt'=>'Stack Door Install'],
+                ['file'=>'Stack-Door-2.jpg',   'alt'=>'Stack Door Project'],
+                ['file'=>'Stack-Door-3.jpg',   'alt'=>'Stack Door Ireland'],
+                ['file'=>'slider2-2.webp',     'alt'=>'Stack Door System'],
+            ],
+        ],
+        [
+            'slug'   => 'curtain-walling',
+            'title'  => 'Curtain Walling',
+            'icon'   => 'bi-grid-3x3-gap',
+            'cover'  => 'Curtain-Walling-Revolving-Doors-1.jpg',
+            'images' => [
+                ['file'=>'Curtain-Walling-Revolving-Doors-1.jpg', 'alt'=>'Curtain Walling Install'],
+                ['file'=>'Curtain-Walling-Revolving-Doors-1.webp','alt'=>'Curtain Wall System'],
+                ['file'=>'Curtain-Walling-Revolving-Doors.webp',  'alt'=>'Curtain Walling Ireland'],
+                ['file'=>'slider-3-1.jpeg',                        'alt'=>'Curtain Wall Project'],
+            ],
+        ],
+        [
+            'slug'   => 'revolving-doors',
+            'title'  => 'Revolving Doors',
+            'icon'   => 'bi-arrow-repeat',
+            'cover'  => 'Curtain-Walling-Revolving-Doors-1.jpg',
+            'images' => [
+                ['file'=>'Curtain-Walling-Revolving-Doors-1.jpg', 'alt'=>'Revolving Door Installed'],
+                ['file'=>'Curtain-Walling-Revolving-Doors-1.webp','alt'=>'Revolving Door System'],
+                ['file'=>'Curtain-Walling-Revolving-Doors.webp',  'alt'=>'Revolving Door Project'],
+            ],
+        ],
+        [
+            'slug'   => 'industrial-roller-shutters',
+            'title'  => 'Industrial Roller Shutters',
+            'icon'   => 'bi-layout-three-columns',
+            'cover'  => 'Industrial-Roller-Shutters-3.jpg',
+            'images' => [
+                ['file'=>'Industrial-Roller-Shutters-1.jpg', 'alt'=>'Industrial Roller Shutter 1'],
+                ['file'=>'Industrial-Roller-Shutters-2.jpg', 'alt'=>'Industrial Roller Shutter 2'],
+                ['file'=>'Industrial-Roller-Shutters-3.jpg', 'alt'=>'Industrial Roller Shutter 3'],
+                ['file'=>'Industrial-Roller-Shutters-4.jpg', 'alt'=>'Industrial Roller Shutter 4'],
+                ['file'=>'Industrial-Roller-Shutters.jpg',   'alt'=>'Industrial Shutters Ireland'],
+                ['file'=>'Industrial-Roller-Shutters.jpeg',  'alt'=>'Industrial Shutter Install'],
+            ],
+        ],
+    ];
 }
 
 // ── Services — automaticdoorrepair.ie only (from DB pages) ─────

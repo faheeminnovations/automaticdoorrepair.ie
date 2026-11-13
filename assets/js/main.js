@@ -14,8 +14,8 @@
   }
 
   /* ── 2. Hamburger / mobile nav ──────────────────────── */
-  const hamburger    = document.getElementById('hamburger');
-  const mobileNav    = document.getElementById('mobileNav');
+  const hamburger     = document.getElementById('hamburger');
+  const mobileNav     = document.getElementById('mobileNav');
   const mobileOverlay = document.getElementById('mobileOverlay');
 
   function openNav() {
@@ -40,30 +40,49 @@
   });
   if (mobileOverlay) mobileOverlay.addEventListener('click', closeNav);
 
-  /* Close mobile nav on link click */
-  document.querySelectorAll('.mob-link').forEach(link => {
+  /* Close mobile nav on regular link click */
+  document.querySelectorAll('.mob-link, .mob-dropdown a').forEach(link => {
     link.addEventListener('click', closeNav);
   });
 
-  /* ── 3. Smooth scroll for all anchor links ──────────── */
+  /* ── 3. Mobile accordion dropdowns ─────────────────── */
+  document.querySelectorAll('.mob-dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // close all first
+      document.querySelectorAll('.mob-dropdown-toggle').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const s = b.nextElementSibling;
+        if (s) s.classList.remove('open');
+      });
+      // toggle clicked one
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        const sub = btn.nextElementSibling;
+        if (sub) sub.classList.add('open');
+      }
+    });
+  });
+
+  /* ── 4. Smooth scroll for anchor links ──────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      const offset = header ? header.offsetHeight + 8 : 80;
+      const offset = header ? header.offsetHeight + 8 : 130;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
-  /* ── 4. Active nav highlight on scroll ──────────────── */
-  const sections  = document.querySelectorAll('section[id], div[id]');
-  const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
+  /* ── 5. Active nav highlight on scroll ──────────────── */
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.main-nav-links a[href^="#"]');
 
   function setActiveNav() {
     let current = '';
-    const scrollY = window.scrollY + (header ? header.offsetHeight + 20 : 90);
+    const scrollY = window.scrollY + (header ? header.offsetHeight + 20 : 130);
     sections.forEach(sec => {
       if (sec.offsetTop <= scrollY) current = sec.id;
     });
@@ -74,7 +93,7 @@
   window.addEventListener('scroll', setActiveNav, { passive: true });
   setActiveNav();
 
-  /* ── 5. Back to top ─────────────────────────────────── */
+  /* ── 6. Back to top ─────────────────────────────────── */
   const btt = document.getElementById('backToTop');
   if (btt) {
     window.addEventListener('scroll', () => {
@@ -83,7 +102,7 @@
     btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  /* ── 6. Fade-up on scroll ───────────────────────────── */
+  /* ── 7. Fade-up on scroll ───────────────────────────── */
   const fadeEls = document.querySelectorAll('.fade-up');
   if ('IntersectionObserver' in window && fadeEls.length) {
     const obs = new IntersectionObserver((entries) => {
@@ -98,7 +117,7 @@
     fadeEls.forEach(el => el.classList.add('in-view'));
   }
 
-  /* ── 7. Counter animation ───────────────────────────── */
+  /* ── 8. Counter animation ───────────────────────────── */
   const counters = document.querySelectorAll('[data-count]');
   if ('IntersectionObserver' in window && counters.length) {
     const cObs = new IntersectionObserver((entries) => {
@@ -123,7 +142,7 @@
     counters.forEach(c => cObs.observe(c));
   }
 
-  /* ── 8. Contact form inline validation ─────────────── */
+  /* ── 9. Contact form inline validation ─────────────── */
   const form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (e) {

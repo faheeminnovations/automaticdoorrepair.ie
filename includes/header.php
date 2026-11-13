@@ -66,44 +66,140 @@ $bp = BASE_PATH;
 
 <!-- ═══ HEADER / NAV ═══ -->
 <header class="site-header" id="siteHeader">
-  <div class="container">
-    <nav class="nav-inner">
+
+  <!-- TOP BAR: logo + contact details -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
       <a href="<?= $bp ?>/" class="site-logo" aria-label="Elite Tech Precision — Home">
-        <img src="<?= $bp ?>/assets/images/logo.png" alt="Elite Tech Precision Ltd Logo" width="160" height="auto" loading="eager">
+        <img src="<?= $bp ?>/assets/images/logo.png" alt="Elite Tech Precision Ltd Logo" width="150" height="auto" loading="eager">
       </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="<?= $bp ?>/about/"     <?= ($current_page ?? '') === 'about'     ? 'class="active"' : '' ?>>About</a></li>
-        <li><a href="<?= $bp ?>/services/"  <?= ($current_page ?? '') === 'services'  ? 'class="active"' : '' ?>>Services</a></li>
-        <li><a href="<?= $bp ?>/#why-us"   >Why Us</a></li>
-        <li><a href="<?= $bp ?>/#process"  >Process</a></li>
-        <li><a href="<?= $bp ?>/#clients"  >Clients</a></li>
-        <li><a href="<?= $bp ?>/contact/"  <?= ($current_page ?? '') === 'contact'    ? 'class="active"' : '' ?>>Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="tel:<?= SITE_PHONE ?>" class="btn-call">
-          <i class="bi bi-telephone-fill"></i><span><?= SITE_PHONE_DISPLAY ?></span>
+      <div class="top-contacts">
+        <a href="<?= SITE_WHATSAPP ?>" class="top-contact-item" target="_blank" rel="noopener">
+          <span class="top-contact-icon top-contact-icon--wa"><i class="bi bi-whatsapp"></i></span>
+          <span class="top-contact-text">
+            <span class="top-contact-label">WhatsApp Number</span>
+            <span class="top-contact-value">+353851000459</span>
+          </span>
         </a>
+        <a href="tel:<?= SITE_PHONE ?>" class="top-contact-item">
+          <span class="top-contact-icon top-contact-icon--ph"><i class="bi bi-telephone-fill"></i></span>
+          <span class="top-contact-text">
+            <span class="top-contact-label">24/7 Phone Number</span>
+            <span class="top-contact-value"><?= SITE_PHONE_DISPLAY ?></span>
+          </span>
+        </a>
+        <a href="mailto:<?= SITE_EMAIL ?>" class="top-contact-item">
+          <span class="top-contact-icon top-contact-icon--em"><i class="bi bi-envelope-fill"></i></span>
+          <span class="top-contact-text">
+            <span class="top-contact-label">Send Your Mail</span>
+            <span class="top-contact-value"><?= SITE_EMAIL ?></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAV: dark bar with links + CTA -->
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <div class="container main-nav-inner">
+      <ul class="main-nav-links" id="navLinks">
+        <li><a href="<?= $bp ?>/" <?= ($current_page ?? '') === 'home' ? 'class="active"' : '' ?>>Home</a></li>
+        <li><a href="<?= $bp ?>/about/" <?= ($current_page ?? '') === 'about' ? 'class="active"' : '' ?>>About Us</a></li>
+
+        <!-- Products dropdown -->
+        <li class="has-dropdown">
+          <a href="<?= $bp ?>/services/" <?= ($current_page ?? '') === 'services' ? 'class="active"' : '' ?>>
+            Products <i class="bi bi-chevron-down dropdown-arrow"></i>
+          </a>
+          <ul class="dropdown-menu-nav">
+            <li><a href="<?= $bp ?>/services/automatic-doors/">Automatic Doors</a></li>
+            <li><a href="<?= $bp ?>/services/automatic-swing-doors/">Automatic Swing Doors</a></li>
+            <li><a href="<?= $bp ?>/services/commercial-sliding-doors/">Commercial Sliding Doors</a></li>
+            <li><a href="<?= $bp ?>/services/aluminium-shopfronts/">Aluminium Shopfronts</a></li>
+            <li><a href="<?= $bp ?>/services/aluminium-commercial-doors/">Aluminium Commercial Doors</a></li>
+            <li><a href="<?= $bp ?>/services/industrial-roller-shutters/">Industrial Roller Shutters</a></li>
+            <li><a href="<?= $bp ?>/services/commercial-roller-shutters/">Commercial Roller Shutters</a></li>
+            <li><a href="<?= $bp ?>/services/fire-rated-roller-shutters/">Fire Rated Roller Shutters</a></li>
+            <li><a href="<?= $bp ?>/services/fire-rated-steel-doors/">Fire Rated Steel Doors</a></li>
+            <li><a href="<?= $bp ?>/services/commercial-steel-doors/">Commercial Steel Doors</a></li>
+            <li><a href="<?= $bp ?>/services/fire-exit-doors/">Fire Exit Doors</a></li>
+            <li><a href="<?= $bp ?>/services/fire-rated-glazed-screens/">Fire Rated Glazed Screens</a></li>
+            <li><a href="<?= $bp ?>/services/curtain-walling/">Curtain Walling</a></li>
+            <li><a href="<?= $bp ?>/services/revolving-doors/">Revolving Doors</a></li>
+            <li><a href="<?= $bp ?>/services/stack-doors/">Stack Doors</a></li>
+          </ul>
+        </li>
+
+        <!-- Services dropdown -->
+        <li class="has-dropdown">
+          <a href="<?= $bp ?>/services/">
+            Services <i class="bi bi-chevron-down dropdown-arrow"></i>
+          </a>
+          <ul class="dropdown-menu-nav">
+            <li><a href="<?= $bp ?>/services/planned-preventative-maintenance/">Planned Preventative Maintenance</a></li>
+            <li><a href="<?= $bp ?>/services/24-hour-reactive-call-out/">24-Hour Reactive Call-Out</a></li>
+          </ul>
+        </li>
+
+        <li><a href="<?= $bp ?>/contact/" <?= ($current_page ?? '') === 'contact' ? 'class="active"' : '' ?>>Contact Us</a></li>
+        <li><a href="<?= $bp ?>/all-projects/" <?= ($current_page ?? '') === 'gallery' ? 'class="active"' : '' ?>>Projects Gallery</a></li>
+      </ul>
+
+      <div class="main-nav-right">
+        <a href="<?= $bp ?>/contact/" class="btn-quote">Get a Free Quote</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+
 </header>
 
 <!-- Mobile nav drawer -->
 <div class="mobile-nav" id="mobileNav" aria-hidden="true">
   <ul>
-    <li><a href="<?= $bp ?>/about/"    class="mob-link">About</a></li>
-    <li><a href="<?= $bp ?>/services/"  class="mob-link">Services</a></li>
-    <li><a href="<?= $bp ?>/#why-us"    class="mob-link">Why Us</a></li>
-    <li><a href="<?= $bp ?>/#process"   class="mob-link">Process</a></li>
-    <li><a href="<?= $bp ?>/#clients"   class="mob-link">Clients</a></li>
-    <li><a href="<?= $bp ?>/contact/"   class="mob-link">Contact</a></li>
+    <li><a href="<?= $bp ?>/" class="mob-link">Home</a></li>
+    <li><a href="<?= $bp ?>/about/" class="mob-link">About Us</a></li>
+    <li class="mob-has-dropdown">
+      <button class="mob-dropdown-toggle" aria-expanded="false">
+        Products <i class="bi bi-chevron-down"></i>
+      </button>
+      <ul class="mob-dropdown">
+        <li><a href="<?= $bp ?>/services/automatic-doors/">Automatic Doors</a></li>
+        <li><a href="<?= $bp ?>/services/automatic-swing-doors/">Automatic Swing Doors</a></li>
+        <li><a href="<?= $bp ?>/services/commercial-sliding-doors/">Commercial Sliding Doors</a></li>
+        <li><a href="<?= $bp ?>/services/aluminium-shopfronts/">Aluminium Shopfronts</a></li>
+        <li><a href="<?= $bp ?>/services/aluminium-commercial-doors/">Aluminium Commercial Doors</a></li>
+        <li><a href="<?= $bp ?>/services/industrial-roller-shutters/">Industrial Roller Shutters</a></li>
+        <li><a href="<?= $bp ?>/services/commercial-roller-shutters/">Commercial Roller Shutters</a></li>
+        <li><a href="<?= $bp ?>/services/fire-rated-roller-shutters/">Fire Rated Roller Shutters</a></li>
+        <li><a href="<?= $bp ?>/services/fire-rated-steel-doors/">Fire Rated Steel Doors</a></li>
+        <li><a href="<?= $bp ?>/services/commercial-steel-doors/">Commercial Steel Doors</a></li>
+        <li><a href="<?= $bp ?>/services/fire-exit-doors/">Fire Exit Doors</a></li>
+        <li><a href="<?= $bp ?>/services/fire-rated-glazed-screens/">Fire Rated Glazed Screens</a></li>
+        <li><a href="<?= $bp ?>/services/curtain-walling/">Curtain Walling</a></li>
+        <li><a href="<?= $bp ?>/services/revolving-doors/">Revolving Doors</a></li>
+        <li><a href="<?= $bp ?>/services/stack-doors/">Stack Doors</a></li>
+      </ul>
+    </li>
+    <li class="mob-has-dropdown">
+      <button class="mob-dropdown-toggle" aria-expanded="false">
+        Services <i class="bi bi-chevron-down"></i>
+      </button>
+      <ul class="mob-dropdown">
+        <li><a href="<?= $bp ?>/services/planned-preventative-maintenance/">Planned Preventative Maintenance</a></li>
+        <li><a href="<?= $bp ?>/services/24-hour-reactive-call-out/">24-Hour Reactive Call-Out</a></li>
+      </ul>
+    </li>
+    <li><a href="<?= $bp ?>/contact/" class="mob-link">Contact Us</a></li>
+    <li><a href="<?= $bp ?>/all-projects/" class="mob-link">Projects Gallery</a></li>
     <li>
-      <a href="tel:<?= SITE_PHONE ?>" class="mob-cta">
-        <i class="bi bi-telephone-fill me-2"></i><?= SITE_PHONE_DISPLAY ?>
-      </a>
+      <a href="<?= $bp ?>/contact/" class="mob-cta">Get a Free Quote</a>
+    </li>
+    <li class="mob-contacts">
+      <a href="tel:<?= SITE_PHONE ?>"><i class="bi bi-telephone-fill"></i> <?= SITE_PHONE_DISPLAY ?></a>
+      <a href="mailto:<?= SITE_EMAIL ?>"><i class="bi bi-envelope-fill"></i> <?= SITE_EMAIL ?></a>
     </li>
   </ul>
 </div>

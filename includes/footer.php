@@ -36,7 +36,7 @@ $bp = BASE_PATH;
           <li><a href="<?= $bp ?>/"><i class="bi bi-chevron-right"></i>Home</a></li>
           <li><a href="<?= $bp ?>/about/"><i class="bi bi-chevron-right"></i>About Us</a></li>
           <li><a href="<?= $bp ?>/services/"><i class="bi bi-chevron-right"></i>Services</a></li>
-          <li><a href="<?= $bp ?>/gallery/"><i class="bi bi-chevron-right"></i>Gallery</a></li>
+          <li><a href="<?= $bp ?>/all-projects/"><i class="bi bi-chevron-right"></i>Gallery</a></li>
           <li><a href="<?= $bp ?>/contact/"><i class="bi bi-chevron-right"></i>Contact Us</a></li>
           <li><a href="<?= $bp ?>/sitemap.xml"><i class="bi bi-chevron-right"></i>Sitemap</a></li>
         </ul>
