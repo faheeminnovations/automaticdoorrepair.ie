@@ -165,6 +165,29 @@ function send_enquiry_email(array $d): bool {
     return @mail($to, $subject, $body, $headers);
 }
 
+/**
+ * Load active reviews from DB
+ */
+function db_reviews(bool $active_only = true): array {
+    static $cache = [];
+    $key = $active_only ? 'active' : 'all';
+    if (isset($cache[$key])) return $cache[$key];
+    $cache[$key] = [];
+    try {
+        $sock = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock';
+        $conn = new mysqli();
+        $conn->real_connect(null, 'root', '', 'automaticdoorrepair', 3306, $sock);
+        if (!$conn->connect_error) {
+            $conn->set_charset('utf8mb4');
+            $where = $active_only ? 'WHERE is_active = 1' : '';
+            $res   = $conn->query("SELECT * FROM reviews {$where} ORDER BY sort_order ASC, id ASC");
+            if ($res) while ($row = $res->fetch_assoc()) $cache[$key][] = $row;
+            $conn->close();
+        }
+    } catch (Exception $e) {}
+    return $cache[$key];
+}
+
 // ── All Products with gallery images (for gallery & all-projects pages) ─
 function get_products_gallery(): array {
     return [

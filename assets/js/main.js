@@ -127,15 +127,25 @@
         const target = parseInt(el.dataset.count, 10);
         const suffix = el.dataset.suffix || '';
         const dur    = 1800;
-        const step   = target / (dur / 16);
-        let cur      = 0;
-        const tick = () => {
-          cur += step;
-          if (cur >= target) { el.textContent = target + suffix; return; }
-          el.textContent = Math.floor(cur) + suffix;
-          requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
+        let start    = null;
+
+        // Pre-set final value to lock the element width — prevents layout shift
+        el.style.fontVariantNumeric = 'tabular-nums';
+        el.style.display   = 'inline-block';
+        el.textContent     = target + suffix;
+        const finalW       = el.offsetWidth;
+        el.style.minWidth  = finalW + 'px';
+        el.textContent     = '0' + suffix;
+
+        function step(ts) {
+          if (!start) start = ts;
+          const progress = Math.min((ts - start) / dur, 1);
+          const eased    = 1 - (1 - progress) * (1 - progress); // ease-out
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
         cObs.unobserve(el);
       });
     }, { threshold: 0.4 });

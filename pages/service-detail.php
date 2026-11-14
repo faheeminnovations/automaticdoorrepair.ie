@@ -19,13 +19,15 @@ $conn->close();
 if (!$svc) { http_response_code(404); require __DIR__ . '/404.php'; exit; }
 
 $current_page = 'services';
-$title_seo    = htmlspecialchars($svc['title']);
+$title_raw = $svc['title'];  // e.g. "Automatic Doors"
+$title_seo = htmlspecialchars($title_raw);
 
+// Repair-first title — no double encoding, no "Supply/Install"
 $seo = [
-    'title'       => $title_seo . ' Ireland | Supply, Install &amp; Repair — ' . SITE_NAME,
-    'description' => htmlspecialchars($svc['short_desc']) . ' ADSA &amp; DHF certified engineers. Free site survey. 24/7 emergency callout across Ireland. Call ' . SITE_PHONE_DISPLAY . '.',
-    'keywords'    => strtolower($title_seo) . ' Ireland, ' . strtolower($title_seo) . ' Dublin, ' . strtolower($title_seo) . ' Kildare, commercial ' . strtolower($title_seo),
-    'canonical'   => SITE_URL . '/services/' . htmlspecialchars($svc['slug']) . '/',
+    'title'       => $title_raw . ' Repair Ireland | 24/7 Emergency Service — ' . SITE_NAME,
+    'description' => $svc['short_desc'] . ' ADSA & DHF certified engineers. Free diagnosis. 24/7 emergency callout across Ireland. Call ' . SITE_PHONE_DISPLAY . '.',
+    'keywords'    => strtolower($title_raw) . ' repair Ireland, ' . strtolower($title_raw) . ' repair Dublin, ' . strtolower($title_raw) . ' service Ireland, emergency ' . strtolower($title_raw) . ' repair',
+    'canonical'   => SITE_URL . '/services/' . $svc['slug'] . '/',
 ];
 
 $schema_json = '<script type="application/ld+json">' . json_encode([
@@ -78,10 +80,10 @@ $imgSrc  = file_exists($gpPath)
       <i class="bi bi-chevron-right"></i>
       <span><?= $title_seo ?></span>
     </nav>
-    <h1><?= $title_seo ?> — Ireland</h1>
+    <h1><?= $title_seo ?> Repair Ireland</h1>
     <p class="page-hero-sub">
-      Expert <?= strtolower($title_seo) ?> supply, installation, repair and maintenance across all of Ireland.
-      ADSA &amp; DHF certified. 24/7 emergency callout available.
+      Expert <?= strtolower($title_seo) ?> repair, servicing and maintenance across all of Ireland.
+      ADSA &amp; DHF certified engineers. 24/7 emergency callout available.
     </p>
   </div>
 </section>
@@ -98,17 +100,17 @@ $imgSrc  = file_exists($gpPath)
              width="600" height="450">
       </div>
       <div class="two-col-text fade-up">
-        <p class="eyebrow"><?= $title_seo ?> Ireland</p>
-        <h2 id="svc-detail-h2">Professional <?= $title_seo ?> Services Across Ireland</h2>
+        <p class="eyebrow"><?= $title_seo ?> Repair Ireland</p>
+        <h2 id="svc-detail-h2">Professional <?= $title_seo ?> Repair &amp; Maintenance Services Across Ireland</h2>
         <p style="font-size:18px;color:#444;margin-bottom:20px;line-height:1.7;">
           <?= htmlspecialchars($svc['short_desc']) ?>
         </p>
         <p>
-          At <strong><?= SITE_NAME ?></strong>, we deliver professional
-          <strong><?= strtolower($title_seo) ?></strong> services for commercial and industrial
-          premises throughout Ireland. Our ADSA and DHF certified engineers ensure every installation
-          meets Irish Building Regulations and EN European safety standards — with minimal disruption
-          to your operation.
+          At <strong><?= SITE_NAME ?></strong>, we specialise in professional
+          <strong><?= strtolower($title_seo) ?> repair</strong> for commercial and industrial
+          premises throughout Ireland. Our ADSA and DHF certified engineers diagnose faults accurately,
+          repair first time and ensure every system meets Irish Building Regulations and EN European
+          safety standards — with minimal disruption to your operation.
         </p>
         <ul class="tick-list">
           <li>Fully ADSA &amp; DHF accredited and insured engineers</li>
@@ -138,7 +140,7 @@ $imgSrc  = file_exists($gpPath)
   <div class="container">
     <div class="section-head center">
       <p class="eyebrow">Why Choose Elite Tech Precision</p>
-      <h2 id="svc-why-h2">The Trusted Choice for <?= $title_seo ?> in Ireland</h2>
+      <h2 id="svc-why-h2">Why Choose Us for <?= $title_seo ?> Repair in Ireland</h2>
     </div>
     <div class="why-grid">
       <?php
@@ -296,8 +298,8 @@ if ($prod && count($prod['images']) > 0):
   <div class="container">
     <div class="cta-inner">
       <div>
-        <h2>Get a Free <?= $title_seo ?> Quote Today</h2>
-        <p>Free on-site survey. No-obligation written quote. 24/7 emergency callout available.</p>
+        <h2>Get a Free <?= $title_seo ?> Repair Quote Today</h2>
+        <p>Free on-site diagnosis. No-obligation repair quote. 24/7 emergency callout available.</p>
       </div>
       <div class="cta-btns">
         <a href="<?= $bp ?>/contact/" class="btn-primary-site">Request Free Quote</a>

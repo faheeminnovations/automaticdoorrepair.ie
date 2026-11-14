@@ -102,42 +102,50 @@ $bp = BASE_PATH;
   <!-- MAIN NAV: dark bar with links + CTA -->
   <nav class="main-nav" id="mainNav" aria-label="Main navigation">
     <div class="container main-nav-inner">
+      <?php
+        // Determine which nav parent should be active
+        $nav_service_slugs = ['planned-preventative-maintenance', '24-hour-reactive-call-out'];
+        $active_slug       = $service_slug ?? '';
+        $is_service_page   = ($current_page ?? '') === 'services';
+        $is_service_nav    = $is_service_page && in_array($active_slug, $nav_service_slugs, true);
+        $is_product_nav    = $is_service_page && !$is_service_nav;
+      ?>
       <ul class="main-nav-links" id="navLinks">
         <li><a href="<?= $bp ?>/" <?= ($current_page ?? '') === 'home' ? 'class="active"' : '' ?>>Home</a></li>
         <li><a href="<?= $bp ?>/about/" <?= ($current_page ?? '') === 'about' ? 'class="active"' : '' ?>>About Us</a></li>
 
         <!-- Products dropdown -->
         <li class="has-dropdown">
-          <a href="<?= $bp ?>/services/" <?= ($current_page ?? '') === 'services' ? 'class="active"' : '' ?>>
+          <a href="<?= $bp ?>/services/" <?= $is_product_nav ? 'class="active"' : '' ?>>
             Products <i class="bi bi-chevron-down dropdown-arrow"></i>
           </a>
           <ul class="dropdown-menu-nav">
-            <li><a href="<?= $bp ?>/services/automatic-doors/">Automatic Doors</a></li>
-            <li><a href="<?= $bp ?>/services/automatic-swing-doors/">Automatic Swing Doors</a></li>
-            <li><a href="<?= $bp ?>/services/commercial-sliding-doors/">Commercial Sliding Doors</a></li>
-            <li><a href="<?= $bp ?>/services/aluminium-shopfronts/">Aluminium Shopfronts</a></li>
-            <li><a href="<?= $bp ?>/services/aluminium-commercial-doors/">Aluminium Commercial Doors</a></li>
-            <li><a href="<?= $bp ?>/services/industrial-roller-shutters/">Industrial Roller Shutters</a></li>
-            <li><a href="<?= $bp ?>/services/commercial-roller-shutters/">Commercial Roller Shutters</a></li>
-            <li><a href="<?= $bp ?>/services/fire-rated-roller-shutters/">Fire Rated Roller Shutters</a></li>
-            <li><a href="<?= $bp ?>/services/fire-rated-steel-doors/">Fire Rated Steel Doors</a></li>
-            <li><a href="<?= $bp ?>/services/commercial-steel-doors/">Commercial Steel Doors</a></li>
-            <li><a href="<?= $bp ?>/services/fire-exit-doors/">Fire Exit Doors</a></li>
-            <li><a href="<?= $bp ?>/services/fire-rated-glazed-screens/">Fire Rated Glazed Screens</a></li>
-            <li><a href="<?= $bp ?>/services/curtain-walling/">Curtain Walling</a></li>
-            <li><a href="<?= $bp ?>/services/revolving-doors/">Revolving Doors</a></li>
-            <li><a href="<?= $bp ?>/services/stack-doors/">Stack Doors</a></li>
+            <li><a href="<?= $bp ?>/services/automatic-doors/" <?= $active_slug==='automatic-doors' ? 'class="active"' : '' ?>>Automatic Doors</a></li>
+            <li><a href="<?= $bp ?>/services/automatic-swing-doors/" <?= $active_slug==='automatic-swing-doors' ? 'class="active"' : '' ?>>Automatic Swing Doors</a></li>
+            <li><a href="<?= $bp ?>/services/commercial-sliding-doors/" <?= $active_slug==='commercial-sliding-doors' ? 'class="active"' : '' ?>>Commercial Sliding Doors</a></li>
+            <li><a href="<?= $bp ?>/services/aluminium-shopfronts/" <?= $active_slug==='aluminium-shopfronts' ? 'class="active"' : '' ?>>Aluminium Shopfronts</a></li>
+            <li><a href="<?= $bp ?>/services/aluminium-commercial-doors/" <?= $active_slug==='aluminium-commercial-doors' ? 'class="active"' : '' ?>>Aluminium Commercial Doors</a></li>
+            <li><a href="<?= $bp ?>/services/industrial-roller-shutters/" <?= $active_slug==='industrial-roller-shutters' ? 'class="active"' : '' ?>>Industrial Roller Shutters</a></li>
+            <li><a href="<?= $bp ?>/services/commercial-roller-shutters/" <?= $active_slug==='commercial-roller-shutters' ? 'class="active"' : '' ?>>Commercial Roller Shutters</a></li>
+            <li><a href="<?= $bp ?>/services/fire-rated-roller-shutters/" <?= $active_slug==='fire-rated-roller-shutters' ? 'class="active"' : '' ?>>Fire Rated Roller Shutters</a></li>
+            <li><a href="<?= $bp ?>/services/fire-rated-steel-doors/" <?= $active_slug==='fire-rated-steel-doors' ? 'class="active"' : '' ?>>Fire Rated Steel Doors</a></li>
+            <li><a href="<?= $bp ?>/services/commercial-steel-doors/" <?= $active_slug==='commercial-steel-doors' ? 'class="active"' : '' ?>>Commercial Steel Doors</a></li>
+            <li><a href="<?= $bp ?>/services/fire-exit-doors/" <?= $active_slug==='fire-exit-doors' ? 'class="active"' : '' ?>>Fire Exit Doors</a></li>
+            <li><a href="<?= $bp ?>/services/fire-rated-glazed-screens/" <?= $active_slug==='fire-rated-glazed-screens' ? 'class="active"' : '' ?>>Fire Rated Glazed Screens</a></li>
+            <li><a href="<?= $bp ?>/services/curtain-walling/" <?= $active_slug==='curtain-walling' ? 'class="active"' : '' ?>>Curtain Walling</a></li>
+            <li><a href="<?= $bp ?>/services/revolving-doors/" <?= $active_slug==='revolving-doors' ? 'class="active"' : '' ?>>Revolving Doors</a></li>
+            <li><a href="<?= $bp ?>/services/stack-doors/" <?= $active_slug==='stack-doors' ? 'class="active"' : '' ?>>Stack Doors</a></li>
           </ul>
         </li>
 
         <!-- Services dropdown -->
         <li class="has-dropdown">
-          <a href="<?= $bp ?>/services/">
+          <a href="<?= $bp ?>/services/" <?= $is_service_nav ? 'class="active"' : '' ?>>
             Services <i class="bi bi-chevron-down dropdown-arrow"></i>
           </a>
           <ul class="dropdown-menu-nav">
-            <li><a href="<?= $bp ?>/services/planned-preventative-maintenance/">Planned Preventative Maintenance</a></li>
-            <li><a href="<?= $bp ?>/services/24-hour-reactive-call-out/">24-Hour Reactive Call-Out</a></li>
+            <li><a href="<?= $bp ?>/services/planned-preventative-maintenance/" <?= $active_slug==='planned-preventative-maintenance' ? 'class="active"' : '' ?>>Planned Preventative Maintenance</a></li>
+            <li><a href="<?= $bp ?>/services/24-hour-reactive-call-out/" <?= $active_slug==='24-hour-reactive-call-out' ? 'class="active"' : '' ?>>24-Hour Reactive Call-Out</a></li>
           </ul>
         </li>
 

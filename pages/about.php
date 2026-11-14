@@ -8,7 +8,7 @@ $bp           = BASE_PATH;
 $current_page = 'about';
 
 $seo = [
-    'title'       => 'About Us | Elite Tech Precision Ltd — Automatic Door Specialists Ireland Since 2003',
+    'title'       => 'About Us | Elite Tech Precision Ltd — Automatic Door Repair Specialists Ireland Since ' . SITE_FOUNDED,
     'description' => 'Founded in 2003, Elite Tech Precision Ltd is Ireland\'s trusted automatic door repair, supply and installation company. ADSA &amp; DHF certified engineers. 22+ years experience. Naas, Co. Kildare.',
     'keywords'    => 'automatic door company Ireland, about Elite Tech Precision, automatic door specialists Ireland, ADSA certified door company, automatic door repair Kildare',
     'canonical'   => SITE_URL . '/about/',
@@ -49,8 +49,8 @@ require_once __DIR__ . '/../includes/header.php';
       <i class="bi bi-chevron-right"></i>
       <span>About Us</span>
     </nav>
-    <h1>About Elite Tech Precision Ltd</h1>
-    <p class="page-hero-sub">Ireland's trusted automatic door specialists — manufacturing, supplying, installing and maintaining commercial door systems since <?= SITE_FOUNDED ?>.</p>
+    <h1>About Elite Tech Precision Ltd — Ireland's Automatic Door Repair Specialists</h1>
+    <p class="page-hero-sub">Ireland's trusted automatic door repair company since <?= SITE_FOUNDED ?> — repairing, servicing and maintaining automatic doors, roller shutters and fire doors across all 32 counties.</p>
   </div>
 </section>
 
@@ -69,32 +69,31 @@ require_once __DIR__ . '/../includes/header.php';
         </div>
       </div>
       <div class="two-col-text fade-up">
-        <p class="eyebrow">Ireland's Automatic Door Specialists</p>
+        <p class="eyebrow">Ireland's Automatic Door Repair Specialists</p>
         <h2 id="about-h2">
-          <?= SITE_YEARS_EXP ?>+ Years Delivering Expert Automatic Door Repair &amp; Installation Across Ireland
+          <?= SITE_YEARS_EXP ?>+ Years Specialising in Automatic Door Repair Across Ireland
         </h2>
         <p>
-          Established in <?= SITE_FOUNDED ?>, <strong>Elite Tech Precision Ltd</strong> has built a
-          reputation as one of Ireland's most reliable commercial door companies.
-          Based in <strong>Naas, Co. Kildare</strong>, we manufacture, supply, install and maintain
-          the complete range of automatic door systems — from sliding and swing doors to fire-rated
-          shutters, aluminium shopfronts and curtain walling.
+          Established in <?= SITE_FOUNDED ?>, <strong>Elite Tech Precision Ltd</strong> is Ireland's leading
+          automatic door repair company. Based in <strong>Naas, Co. Kildare</strong>, our ADSA and DHF
+          certified engineers repair, service and maintain every type of automatic door system —
+          from automatic sliding and swing doors to roller shutters, fire doors and commercial door systems.
         </p>
         <p>
-          Our team of ADSA and DHF accredited engineers brings genuine expertise to every project,
-          whether it's a routine service call, an emergency breakdown repair or a full new installation
-          for a retail, healthcare or industrial client. We work across <strong>all 32 counties</strong>
-          and pride ourselves on fast response times, clear communication and lasting results.
+          We cover <strong>all 32 counties</strong> with fast response times, accurate fault diagnosis
+          and first-time fix rates that keep your business running with minimal disruption.
+          No job is too complex — we carry a full stock of spare parts for all major brands
+          including CAME, GEZE, Tormax, Besam, Horton and Stanley.
         </p>
         <ul class="tick-list">
-          <li>Manufacturer, supplier &amp; certified installer — single point of contact</li>
-          <li>ADSA &amp; DHF accredited engineers — fully insured &amp; compliant</li>
-          <li>24/7 reactive emergency breakdown &amp; callout service</li>
+          <li>Automatic door repair specialist — all makes, all models</li>
+          <li>ADSA &amp; DHF accredited engineers — fully insured</li>
+          <li>24/7 reactive emergency repair callout across Ireland</li>
           <li>Planned Preventative Maintenance (PPM) contracts</li>
-          <li>Free on-site survey &amp; no-obligation written quotation</li>
-          <li>All 32 counties covered with rapid nationwide response</li>
-          <li>Fully compliant with EN 16005 &amp; Irish Building Regulations</li>
-          <li>All major door brands serviced: CAME, GEZE, Tormax, Besam &amp; more</li>
+          <li>Free on-site diagnosis &amp; no-obligation repair quotation</li>
+          <li>All 32 counties covered — rapid nationwide response</li>
+          <li>EN 16005 &amp; Irish Building Regulation compliant repairs</li>
+          <li>Full spare parts stock — CAME, GEZE, Tormax, Besam &amp; more</li>
         </ul>
         <div class="about-certs">
           <img src="<?= $bp ?>/assets/images/cert-adsa.png" alt="ADSA Accredited Member — Elite Tech Precision" onerror="this.style.display='none'">
@@ -112,11 +111,11 @@ require_once __DIR__ . '/../includes/header.php';
 <section class="section-dark" aria-labelledby="services-cover-h2">
   <div class="container">
     <div class="section-head center">
-      <p class="eyebrow">What We Do</p>
-      <h2 id="services-cover-h2">Complete Commercial Door Solutions — Every System, Every County</h2>
+      <p class="eyebrow">What We Repair</p>
+      <h2 id="services-cover-h2">Every Automatic Door System Repaired — All Makes, All Ireland</h2>
       <p class="section-sub">
-        We are your single-source specialist for every commercial entrance system in Ireland.
-        From supply and installation to emergency repair and ongoing maintenance.
+        From a broken sliding door sensor to a seized roller shutter motor, our certified repair
+        engineers fix every type of commercial automatic door system across Ireland.
       </p>
     </div>
     <div class="why-grid">
