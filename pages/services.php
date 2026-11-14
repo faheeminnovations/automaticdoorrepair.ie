@@ -8,9 +8,9 @@ $bp           = BASE_PATH;
 $current_page = 'services';
 
 $seo = [
-    'title'       => 'Automatic Door Services Ireland | Products &amp; Installations — Elite Tech Precision',
-    'description' => 'Complete automatic door services across Ireland — sliding doors, roller shutters, fire doors, shopfronts, aluminium commercial doors, stack doors &amp; more. ADSA certified. Free quote.',
-    'keywords'    => 'automatic door services Ireland, commercial door installation Ireland, roller shutter supply Ireland, fire door installation Ireland, aluminium shopfronts Ireland, automatic door company Kildare',
+    'title'       => 'Automatic Door Repair Services Ireland | All Door Types — Elite Tech Precision',
+    'description' => 'Professional automatic door repair services across Ireland — sliding doors, roller shutters, fire doors, steel doors & more. ADSA certified. 24/7 emergency repair. Free diagnosis.',
+    'keywords'    => 'automatic door repair services Ireland, sliding door repair Ireland, roller shutter repair Ireland, fire door repair Ireland, emergency door repair Ireland, automatic door maintenance Ireland',
     'canonical'   => SITE_URL . '/services/',
 ];
 
@@ -50,9 +50,9 @@ require_once __DIR__ . '/../includes/header.php';
       <i class="bi bi-chevron-right"></i>
       <span>Products &amp; Services</span>
     </nav>
-    <h1>Automatic Door Products &amp; Services in Ireland</h1>
+    <h1>Automatic Door Repair Services Across Ireland</h1>
     <p class="page-hero-sub">
-      Complete commercial entrance solutions — supply, installation, repair and maintenance of every door system across Ireland.
+      Professional repair, servicing and maintenance for every type of automatic door system — fast response, all brands, all 32 counties.
     </p>
   </div>
 </section>
@@ -83,11 +83,11 @@ require_once __DIR__ . '/../includes/header.php';
 <section class="section-dark" aria-labelledby="services-list-h2">
   <div class="container">
     <div class="section-head center">
-      <p class="eyebrow">Our Products &amp; Services</p>
-      <h2 id="services-list-h2">Every Commercial Door System — Supplied, Installed &amp; Maintained</h2>
+      <p class="eyebrow">Our Repair Services</p>
+      <h2 id="services-list-h2">Every Door System Repaired — All Makes, All Ireland</h2>
       <p class="section-sub">
-        From automatic sliding doors to fire-rated roller shutters, aluminium shopfronts to curtain walling —
-        we are Ireland's one-stop specialist for all commercial entrance and security door systems.
+        From automatic sliding doors to fire-rated roller shutters — we repair, service and maintain
+        every type of commercial door system across Ireland. Fast response. All brands. All 32 counties.
       </p>
     </div>
     <div class="services-grid">

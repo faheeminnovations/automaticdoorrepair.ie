@@ -1,20 +1,32 @@
 <?php
 /**
  * XML Sitemap — automaticdoorrepair.ie
- * Includes all static pages + all service URLs with correct priorities
+ * Complete sitemap: 5 core pages + all 17 active service pages
  */
 require_once __DIR__ . '/includes/functions.php';
 
 header('Content-Type: application/xml; charset=utf-8');
 header('X-Robots-Tag: noindex');
+header('Cache-Control: public, max-age=3600');
 
-$base    = SITE_URL;
-$today   = date('Y-m-d');
-$week    = date('Y-m-d', strtotime('-3 days'));
-$month   = date('Y-m-d', strtotime('-14 days'));
+$base  = SITE_URL;
+$today = date('Y-m-d');
+$week  = date('Y-m-d', strtotime('-3 days'));
+$month = date('Y-m-d', strtotime('-14 days'));
 
-// Fetch all active services
-$services = db_services();
+// Direct DB query — bypasses static cache in db_services()
+$slugs = [];
+try {
+    $sock = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock';
+    $db   = new mysqli();
+    $db->real_connect(null, 'root', '', 'automaticdoorrepair', 3306, $sock);
+    if (!$db->connect_error) {
+        $db->set_charset('utf8mb4');
+        $res = $db->query("SELECT slug FROM services WHERE is_active = 1 ORDER BY sort_order ASC, id ASC");
+        if ($res) while ($r = $res->fetch_assoc()) $slugs[] = $r['slug'];
+        $db->close();
+    }
+} catch (Exception $e) {}
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 ?>
@@ -63,10 +75,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     <priority>0.6</priority>
   </url>
 
-  <!-- Service / Product pages — high priority for ranking -->
-  <?php foreach ($services as $svc): ?>
+  <!-- All 17 service/repair pages — high priority -->
+  <?php foreach ($slugs as $slug): ?>
   <url>
-    <loc><?= $base ?>/services/<?= htmlspecialchars($svc['slug']) ?>/</loc>
+    <loc><?= $base ?>/services/<?= htmlspecialchars($slug) ?>/</loc>
     <lastmod><?= $month ?></lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
