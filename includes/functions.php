@@ -7,7 +7,7 @@
 // ── Site Identity ──────────────────────────────────────────────
 define('SITE_NAME',         'Elite Tech Precision Ltd');
 define('SITE_TAGLINE',      'Automatic Doors — Manufactured, Supplied & Installed Nationwide');
-define('SITE_URL',          'https://automaticdoorrepair.ie');
+define('SITE_URL',          'https://automaticdoorrepair.faheeminnovations.online/');
 
 // ── Real Contact Details (from DB) ─────────────────────────────
 define('SITE_PHONE',         '+35345875406');
@@ -71,22 +71,28 @@ function setting(string $key, string $default = ''): string {
 function db_services(): array {
     static $cache = null;
     if ($cache !== null) return $cache;
+
     $cache = [];
+
     try {
-        $sock  = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock';
-        $conn  = new mysqli();
-        $conn->real_connect(null, 'root', '', 'automaticdoorrepair', 3306, $sock);
-        if (!$conn->connect_error) {
-            $conn->set_charset('utf8mb4');
-            $res = $conn->query("SELECT * FROM services WHERE is_active = 1 ORDER BY sort_order, id");
-            if ($res) {
-                while ($row = $res->fetch_assoc()) {
-                    $cache[] = $row;
-                }
+        require_once __DIR__ . '/../admin/includes/config.php';
+
+        $conn = db();
+        $result = $conn->query(
+            "SELECT * FROM services
+             WHERE is_active = 1
+             ORDER BY sort_order ASC, id ASC"
+        );
+
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $cache[] = $row;
             }
-            $conn->close();
         }
-    } catch (Exception $e) {}
+    } catch (Throwable $e) {
+        error_log('Services database error: ' . $e->getMessage());
+    }
+
     return $cache;
 }
 
@@ -171,20 +177,31 @@ function send_enquiry_email(array $d): bool {
 function db_reviews(bool $active_only = true): array {
     static $cache = [];
     $key = $active_only ? 'active' : 'all';
+
     if (isset($cache[$key])) return $cache[$key];
+
     $cache[$key] = [];
+
     try {
-        $sock = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock';
-        $conn = new mysqli();
-        $conn->real_connect(null, 'root', '', 'automaticdoorrepair', 3306, $sock);
-        if (!$conn->connect_error) {
-            $conn->set_charset('utf8mb4');
-            $where = $active_only ? 'WHERE is_active = 1' : '';
-            $res   = $conn->query("SELECT * FROM reviews {$where} ORDER BY sort_order ASC, id ASC");
-            if ($res) while ($row = $res->fetch_assoc()) $cache[$key][] = $row;
-            $conn->close();
+        require_once __DIR__ . '/../admin/includes/config.php';
+
+        $conn = db();
+        $where = $active_only ? 'WHERE is_active = 1' : '';
+
+        $result = $conn->query(
+            "SELECT * FROM reviews {$where}
+             ORDER BY sort_order ASC, id ASC"
+        );
+
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $cache[$key][] = $row;
+            }
         }
-    } catch (Exception $e) {}
+    } catch (Throwable $e) {
+        error_log('Reviews database error: ' . $e->getMessage());
+    }
+
     return $cache[$key];
 }
 

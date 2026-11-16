@@ -398,9 +398,6 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   border-left-color: var(--c-accent);
   font-weight: 700;
 }
-  padding-left: 24px;
-  border-left-color: #1a6fc4;
-}
 
 /* Right side — CTA button + hamburger */
 .main-nav-right {
@@ -2664,4 +2661,37 @@ body { padding-top: 126px; }
   .hp-svc4-grid     { grid-template-columns: 1fr; }
   .hp-stats-grid    { grid-template-columns: repeat(2, 1fr); }
   .hp-consult-features { grid-template-columns: 1fr; }
+}
+
+/* Homepage hero slider mobile overflow fix */
+@media (max-width: 767px) {
+    .hs__slides {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .hs__slide {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .hs__slide img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 767px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+    }
 }

@@ -39,6 +39,9 @@ switch (true) {
     case ($uri === 'contact'):
         require __DIR__ . '/pages/contact.php';
         break;
+case ($uri === 'privacy-policy'):
+    require __DIR__ . '/pages/privacy-policy.php';
+    break;
     case ($uri === 'sitemap.xml'):
         require __DIR__ . '/sitemap.php';
         break;

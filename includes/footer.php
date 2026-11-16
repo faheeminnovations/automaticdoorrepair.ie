@@ -71,7 +71,7 @@ $bp = BASE_PATH;
 
 <!-- Bootstrap JS + Custom JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="<?= $bp ?>/assets/js/main.js"></script>
+<script src="<?= $bp ?>/assets/js/main.js?v=<?= filemtime(__DIR__ . '/../assets/js/main.js') ?>"></script>
 
 </body>
 </html>

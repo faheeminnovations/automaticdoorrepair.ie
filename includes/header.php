@@ -55,7 +55,7 @@ $bp = BASE_PATH;
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" href="<?= $bp ?>/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v=<?php echo filemtime(__DIR__ . '/../assets/css/style.css'); ?>">
 
 <!-- Dynamic colors from DB -->
 <?= color_vars() ?>

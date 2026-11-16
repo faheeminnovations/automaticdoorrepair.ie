@@ -6,15 +6,35 @@
 require_once __DIR__ . '/../includes/functions.php';
 $bp = BASE_PATH;
 
-// Fetch service from DB
+// Fetch service using Hostinger production database connection
+require_once __DIR__ . '/../admin/includes/config.php';
+
 $slug = $service_slug ?? '';
-$conn = new mysqli();
-$conn->real_connect(null, 'root', '', 'automaticdoorrepair', 3306, '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock');
-$stmt = $conn->prepare("SELECT * FROM services WHERE slug = ? AND is_active = 1 LIMIT 1");
-$stmt->bind_param('s', $slug);
-$stmt->execute();
-$svc = $stmt->get_result()->fetch_assoc();
-$conn->close();
+
+try {
+    $conn = db();
+    $stmt = $conn->prepare(
+        "SELECT * FROM services WHERE slug = ? AND is_active = 1 LIMIT 1"
+    );
+
+    if (!$stmt) {
+        throw new RuntimeException($conn->error);
+    }
+
+    $stmt->bind_param('s', $slug);
+
+    if (!$stmt->execute()) {
+        throw new RuntimeException($stmt->error);
+    }
+
+    $svc = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+
+} catch (Throwable $e) {
+    error_log('Service detail database error: ' . $e->getMessage());
+    http_response_code(500);
+    exit('Service page temporarily unavailable.');
+}
 
 if (!$svc) { http_response_code(404); require __DIR__ . '/404.php'; exit; }
 
