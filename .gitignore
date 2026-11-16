@@ -24,3 +24,8 @@ error_log
 Thumbs.db
 .vscode/
 .idea/
+
+# Temporary backup files
+*.save
+*.backup*
+includes/*.save*
